@@ -6,13 +6,11 @@ Gamestate	= require "hump.gamestate"
 
 -- Questions for our game.
 Questions	= require "questions"
-q			= Questions.getQuestion(1)
 
-function love.load(arg)
-	-- Set the random seed so we don't get the same thing
-	-- over and over
-	love.math.setRandomSeed(love.timer.getTime())
-end
+q			= {}
+q.question	= "wait"
+q.answer1	= "wait"
+q.answer2	= "wait"
 
 function love.draw()
 	love.graphics.print("Hello world", 400, 300)

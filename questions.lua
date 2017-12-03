@@ -23,7 +23,7 @@ function Questions.getQuestion(level)
 		return { question = "...no more questions", answer1 = "error", answer2 = "error" }
 	end
 
-	local r	= math.random(1, #actualQuestions[level])
+	local r	= love.math.random(1, #actualQuestions[level])
 	return table.remove(actualQuestions[level], r)
 end
 
