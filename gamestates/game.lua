@@ -52,7 +52,7 @@ end
 function Game:draw()
 
 	love.graphics.setFont(fonts.tiny)
-	love.graphics.printf(string.format("%d of 25 (%d)", question, level), 100, 20, screenMode.width - 200, "center")
+	love.graphics.printf(string.format("%d of 25", question), 100, 20, screenMode.width - 200, "center")
 
 	if substate == 3 then
 		-- love.graphics.setColor(0, 0, 0)
@@ -68,6 +68,8 @@ function Game:draw()
 
 	if (time < 1) then
 		love.graphics.setColor(255, 0, 0)
+	elseif (time < 3) then
+		love.graphics.setColor(255, 255, 0)
 	end
 	love.graphics.setFont(fonts.big)
 	love.graphics.printf(string.format("%.2f", time), 0, 475, screenMode.width, "center")

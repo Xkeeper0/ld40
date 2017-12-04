@@ -14,7 +14,7 @@ end
 addQuestion(1, "Favorite kind of pet?", "Cats", "Dogs")
 addQuestion(1, "Which is the better flavor?", "Chocolate", "Vanilla")
 addQuestion(1, "Does pineapple go on pizza?", "Yes", "No")
-addQuestion(1, "Do you prefer dubs or subtitles?", "Dubs", "Subs")
+addQuestion(1, "Do you prefer listening or reading?", "Listening", "Reading")
 addQuestion(1, "Are sunny days or rainy days the best?", "Sunny", "Rainy")
 addQuestion(1, "Which do you listen to most?", "TV", "Radio")
 addQuestion(1, "Which one do you use more often?", "Twitter", "Facebook")
