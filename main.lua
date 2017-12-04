@@ -11,6 +11,7 @@ gamestates	= {}
 gamestates.Title	= require "gamestates.title"
 gamestates.Tutorial	= require "gamestates.tutorial"
 gamestates.Game		= require "gamestates.game"
+gamestates.GameOver	= require "gamestates.gameover"
 
 function love.load(arg)
 	-- Register the gamestate events
