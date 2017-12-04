@@ -16,7 +16,7 @@ end
 
 function Tutorial:keypressed(key, code)
 	if key == 'return' then
-		Gamestate.switch(gamestates.Game)
+		Gamestate.switch(gamestates.Game, 1)
 	end
 end
 

@@ -8,11 +8,12 @@ local introTime	= 0
 local choice	= nil
 local dimColor	= 40
 
-function Game:enter(level, question)
+function Game:enter(x, level, question)
+	level		= level and level or 1
 	question	= question and question or 0
 	self:getQuestion(level)
 	time		= level == 5 and 9999 or 5
-	introTime	= 1
+	introTime	= .25
 	substate	= 0
 	choice		= nil
 end
@@ -34,7 +35,14 @@ function Game:update(dt)
 	
 	elseif substate == 3 then
 		if introTime < 0 then
-			Gamestate.switch(gamestates.Game, level, question)
+			if math.fmod(question, 6) == 0 then
+				level	= level + 1
+			end
+			if level < 5 then
+				Gamestate.switch(gamestates.Game, level, question)
+			else
+				Gamestate.switch(gamestates.FinalIntro)
+			end
 		end
 
 	end
@@ -44,7 +52,7 @@ end
 function Game:draw()
 
 	love.graphics.setFont(fonts.tiny)
-	love.graphics.printf(string.format("%d of 20", question), 100, 20, screenMode.width - 200, "center")
+	love.graphics.printf(string.format("%d of 25 (%d)", question, level), 100, 20, screenMode.width - 200, "center")
 
 	if substate == 3 then
 		-- love.graphics.setColor(0, 0, 0)
@@ -55,17 +63,25 @@ function Game:draw()
 	if substate == 0 then
 		-- love.graphics.setColor(0, 0, 0)
 		-- love.graphics.rectangle("fill", 0, 0, screenMode.width, screenMode.height * (1 - (introTime / .25)))
-		love.graphics.translate(0, math.max(0, screenMode.height * ((introTime - .75) / .25)))
+		love.graphics.translate(0, math.max(0, screenMode.height * ((introTime) / .25)))
 	end
 
+	if (time < 1) then
+		love.graphics.setColor(255, 0, 0)
+	end
 	love.graphics.setFont(fonts.big)
 	love.graphics.printf(string.format("%.2f", time), 0, 475, screenMode.width, "center")
+	love.graphics.setColor(255, 255, 255)
 
 	love.graphics.setFont(fonts.normal)
 	love.graphics.printf(q.question, 100, 100, screenMode.width - 200, "center")
 
-	if substate > 0 then
-		if substate == 1 then
+	--if substate > 0 then
+		if substate == 0 then
+			love.graphics.setColor(dimColor, dimColor, dimColor)
+			love.graphics.printf(q.answer1, 100, 300, 200, "center")
+			love.graphics.printf(q.answer2, 500, 300, 200, "center")
+		elseif substate == 1 then
 			love.graphics.setColor(150, 150, 150)
 			love.graphics.printf(q.answer1, 100, 300, 200, "center")
 			love.graphics.printf(q.answer2, 500, 300, 200, "center")
@@ -86,7 +102,7 @@ function Game:draw()
 
 			end
 		end
-	end
+	--end
 
 	love.graphics.setColor(255, 255, 255)
 
@@ -94,7 +110,7 @@ end
 
 
 function Game:getQuestion(level)
-	q			= Questions.getQuestion(1)
+	q			= Questions.getQuestion(level)
 	question	= question + 1
 end
 
