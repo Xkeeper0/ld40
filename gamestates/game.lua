@@ -9,9 +9,18 @@ end
 
 
 function Game:draw()
-	love.graphics.print(q.question, 300, 320)
-	love.graphics.print(q.answer1, 300, 340)
-	love.graphics.print(q.answer2, 300, 360)
+
+	love.graphics.setFont(fonts.big)
+	love.graphics.printf("0.00", 0, 50, screenMode.width, "center")
+	love.graphics.setFont(fonts.normal)
+	love.graphics.printf(q.question, 100, 150, screenMode.width - 200, "center")
+	love.graphics.printf(q.answer1, 100, 300, 200, "center")
+	love.graphics.printf(q.answer2, 500, 300, 200, "center")
+
+	love.graphics.setFont(fonts.small)
+	love.graphics.printf("Push LEFT or RIGHT to choose", 0, 550, screenMode.width, "center")
+
+
 end
 
 function Game:getQuestion(level)

@@ -12,6 +12,18 @@ gamestates.Title	= require "gamestates.title"
 gamestates.Tutorial	= require "gamestates.tutorial"
 gamestates.Game		= require "gamestates.game"
 
--- Register the gamestate events
-Gamestate.switch(gamestates.Title)
-Gamestate.registerEvents()
+function love.load(arg)
+	-- Register the gamestate events
+	Gamestate.switch(gamestates.Title)
+	Gamestate.registerEvents()
+
+	fonts			= {}
+	fonts.big		= love.graphics.newFont(60)
+	fonts.normal	= love.graphics.newFont(30)
+	fonts.small		= love.graphics.newFont(20)
+	fonts.tiny		= love.graphics.newFont(15)
+
+	screenMode		= {}
+	screenMode.width, screenMode.height, screenMode.flags	= love.window.getMode()
+
+end

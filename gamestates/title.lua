@@ -7,8 +7,10 @@ end
 
 
 function Title:draw()
-	love.graphics.print("Title screen", 100, 100)
-	love.graphics.print("Push enter to start", 100, 120)
+	love.graphics.setFont(fonts.big)
+	love.graphics.printf("Title screen", 0, 100, screenMode.width, "center")
+	love.graphics.setFont(fonts.small)
+	love.graphics.printf("Push enter to start", 0, 500, screenMode.width, "center")
 end
 
 function Title:keypressed(key, code)
