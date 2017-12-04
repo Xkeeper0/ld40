@@ -9,7 +9,7 @@ Questions	= require "questions"
 
 gamestates	= {}
 gamestates.Title	= require "gamestates.title"
-gamestates.Tutorial	= nil
+gamestates.Tutorial	= require "gamestates.tutorial"
 gamestates.Game		= require "gamestates.game"
 
 -- Register the gamestate events
