@@ -39,7 +39,7 @@ function Game:getQuestion(level)
 end
 
 function Game:keypressed(key, code)
-    if key == 'space' then
+    if key == 'space' or key == 'left' or key == 'right' then
 		-- self:getQuestion(level)
 		Gamestate.switch(gamestates.Game, level, question)
     end
