@@ -55,14 +55,8 @@ function Game:draw()
 	love.graphics.printf(string.format("%d of 25", question), 100, 20, screenMode.width - 200, "center")
 
 	if substate == 3 then
-		-- love.graphics.setColor(0, 0, 0)
-		-- love.graphics.rectangle("fill", 0, 0, screenMode.width, screenMode.height * (1 - (introTime / .25)))
 		love.graphics.translate(0, math.min(0, screenMode.height * (1 - (introTime / .25)) * - 1))
-	end
-
-	if substate == 0 then
-		-- love.graphics.setColor(0, 0, 0)
-		-- love.graphics.rectangle("fill", 0, 0, screenMode.width, screenMode.height * (1 - (introTime / .25)))
+	elseif substate == 0 then
 		love.graphics.translate(0, math.max(0, screenMode.height * ((introTime) / .25)))
 	end
 
