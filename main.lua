@@ -15,6 +15,7 @@ gamestates.GameOver			= require "gamestates.gameover"
 gamestates.FinalIntro		= require "gamestates.finalintro"
 gamestates.FinalGame		= require "gamestates.finalgame"
 gamestates.FinalGameOver	= require "gamestates.finalgameover"
+gamestates.FinalEnding		= require "gamestates.finalending"
 
 function love.load(arg)
 	-- Register the gamestate events
@@ -26,6 +27,7 @@ function love.load(arg)
 	fonts.normal	= love.graphics.newFont(30)
 	fonts.small		= love.graphics.newFont(20)
 	fonts.tiny		= love.graphics.newFont(15)
+	fonts.micro		= love.graphics.newFont(10)
 
 	screenMode		= {}
 	screenMode.width, screenMode.height, screenMode.flags	= love.window.getMode()

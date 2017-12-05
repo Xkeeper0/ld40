@@ -30,19 +30,12 @@ function FinalGame:update(dt)
 	elseif substate == 1 then
 		time		= time - dt
 		if time < 0 then
-			Gamestate.switch(gamestates.GameOver)
+			Gamestate.switch(gamestates.FinalGameOver)
 		end
 	
 	elseif substate == 3 then
 		if introTime < 0 then
-			if math.fmod(question, 6) == 0 then
-				level	= level + 1
-			end
-			if level < 5 then
-				Gamestate.switch(gamestates.Game, level, question)
-			else
-				Gamestate.switch(gamestates.FinalGameOver)
-			end
+			Gamestate.switch(gamestates.FinalEnding, 19998 - time)
 		end
 
 	end
@@ -114,7 +107,7 @@ function FinalGame:keypressed(key, code)
 
 	if substate == 1 and (key == 'left' or key == 'right') then
 		substate	= 2
-		introTime	= .5
+		introTime	= 2
 		choice		= key == 'left' and 1 or 2
 	end
 

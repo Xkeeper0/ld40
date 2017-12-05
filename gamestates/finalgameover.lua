@@ -8,9 +8,9 @@ end
 
 function FinalGameOver:draw()
 	love.graphics.setFont(fonts.big)
-	love.graphics.printf("The Only Winning Move", 0, 100, screenMode.width, "center")
+	love.graphics.printf("what", 0, 100, screenMode.width, "center")
 	love.graphics.setFont(fonts.normal)
-	love.graphics.printf("There is no ending (yet). Sorry.", 0, 300, screenMode.width, "center")
+	love.graphics.printf("did you seriously wait that long just to fail the final question?????????\n\nno. you have to be cheating.\n\nget out.", 0, 300, screenMode.width, "center")
 	love.graphics.setFont(fonts.small)
 	love.graphics.printf("Press any key to quit", 0, 500, screenMode.width, "center")
 end
