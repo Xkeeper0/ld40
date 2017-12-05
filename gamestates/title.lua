@@ -17,7 +17,7 @@ end
 
 function Title:keypressed(key, code)
 	if key == 'return' then
-		Gamestate.switch(gamestates.FinalIntro)
+		Gamestate.switch(gamestates.Game, 4, 21)
 	end
 end
 

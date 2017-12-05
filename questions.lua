@@ -69,7 +69,7 @@ addQuestion(4, "Would you ever give your life to save someone else?", "Yes", "No
 
 -- Level 5 question
 -- The only one (probably). Here for consistency.
-addQuestion(5, "What will you do?", "Win,\nand make them lose", "Lose,\nand let them win")
+addQuestion(5, "What will you do?", "Make them lose", "Let them win")
 
 
 

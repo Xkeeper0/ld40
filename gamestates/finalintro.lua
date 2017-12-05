@@ -3,11 +3,11 @@ local FinalIntro	= {}
 local substate	= 1
 local stateTime	= 0
 
-local stateTimers	= { 0.25, 2.72, 2, 1, 4, 2, 6, 3, .25, 9999 }
+local stateTimers	= { 1, 2.72, 2, 1, 4, 2, 6, 3, 1, 9999 }
 
 function FinalIntro:enter()
 	substate	= 1
-	stateTime	= .25
+	stateTime	= 1
 end
 
 
@@ -21,7 +21,7 @@ function FinalIntro:update(dt)
 	end
 
 	if substate	== 10 then
-		Gamestate.switch(gamestates.GameOver)
+		Gamestate.switch(gamestates.FinalGame)
 	end
 end
 
@@ -32,12 +32,10 @@ function FinalIntro:draw()
 		return
 	end
 
-	love.graphics.print(string.format("%d , %.2f", substate, stateTime), 10, 10)
-
 	if substate == 1 then
-		love.graphics.translate(0, math.max(0, screenMode.height * ((stateTime) / .25)))
+		love.graphics.translate(0, math.max(0, screenMode.height * ((stateTime - .75) / .25)))
 	elseif substate == 9 then
-		love.graphics.translate(0, math.min(0, screenMode.height * (1 - (stateTime / .25)) * - 1))
+		love.graphics.translate(0, math.min(0, screenMode.height * (1 - ((stateTime - .75) / .25)) * - 1))
 	end
 
 	love.graphics.setFont(fonts.big)
@@ -71,10 +69,6 @@ function FinalIntro:draw()
 		love.graphics.printf(string.format("%d", math.ceil(substate == 8 and stateTime or 0)), 0, 500, screenMode.width, "center")
 	end
 
-end
-
-function FinalIntro:keypressed(key, code)
-	love.event.quit()
 end
 
 return FinalIntro

@@ -8,11 +8,13 @@ Gamestate	= require "hump.gamestate"
 Questions	= require "questions"
 
 gamestates	= {}
-gamestates.Title		= require "gamestates.title"
-gamestates.Tutorial		= require "gamestates.tutorial"
-gamestates.Game			= require "gamestates.game"
-gamestates.GameOver		= require "gamestates.gameover"
-gamestates.FinalIntro	= require "gamestates.finalintro"
+gamestates.Title			= require "gamestates.title"
+gamestates.Tutorial			= require "gamestates.tutorial"
+gamestates.Game				= require "gamestates.game"
+gamestates.GameOver			= require "gamestates.gameover"
+gamestates.FinalIntro		= require "gamestates.finalintro"
+gamestates.FinalGame		= require "gamestates.finalgame"
+gamestates.FinalGameOver	= require "gamestates.finalgameover"
 
 function love.load(arg)
 	-- Register the gamestate events
